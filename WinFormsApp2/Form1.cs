@@ -14,7 +14,7 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
-                dataGridView1.DataSource = context.Product.ToList();
+                dataGridView1.DataSource = context.Products.ToList();
             }
 
         }
