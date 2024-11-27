@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,15 @@ namespace WinFormsApp2.MyEFCore
     /// </summary>
     public class AndersonDbContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var builder = new SqlConnectionStringBuilder();
+            builder.DataSource = @"DESKTOP-O4DS0L0";
+            builder.InitialCatalog = "AndersonA";
+            builder.IntegratedSecurity = true;
+            builder.TrustServerCertificate = true;
+
+            optionsBuilder.UseSqlServer(builder.ConnectionString);
+        }
     }
 }
