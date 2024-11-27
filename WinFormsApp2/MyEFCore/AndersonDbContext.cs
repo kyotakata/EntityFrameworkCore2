@@ -26,4 +26,15 @@ namespace WinFormsApp2.MyEFCore
             optionsBuilder.UseSqlServer(builder.ConnectionString);
         }
     }
+
+    /// <summary>
+    /// モデルクラス
+    /// </summary>
+    public class Product
+    {
+        public int Id { get; set; }
+        public string ProductName { get; set; }// varchar(255)はC#でいうところのstring
+        public int Price { get; set; }
+
+    }
 }
