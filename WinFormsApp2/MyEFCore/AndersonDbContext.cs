@@ -19,7 +19,7 @@ namespace WinFormsApp2.MyEFCore
         /// DbSet<TEntity>を介してデータベースにアクセスし、Productデータを全件取得する
         /// プロパティ名はテーブルの名前を指定する
         /// </summary>
-        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductEntity> Product { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,13 +33,26 @@ namespace WinFormsApp2.MyEFCore
             //UseSqlServerで接続先を指定
             optionsBuilder.UseSqlServer(builder.ConnectionString);
         }
+
+        /// <summary>
+        /// 主キーの指定(ProductEntity.ProductIdが主キーであることを定義)
+        /// 主キーがModelクラス名+Id出ない場合に指定が必要。
+        /// 復号キーの場合にも指定が必要。
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductEntity>().HasKey(p => p.ProductId);
+        }
     }
 
     /// <summary>
-    /// モデルクラス
+    /// Modelクラス
     /// </summary>
-    public class Product
+    public class ProductEntity
     {
+        // モデル名+IdまたはIdの場合は勝手に主キーと判断してくれるが、
+        // そうでない場合はOnModelCreatingをoverrideし、主キーを定義する必要あり。
         public int ProductId { get; set; }
         public string ProductName { get; set; }// varchar(255)はC#でいうところのstring
         public int Price { get; set; }
