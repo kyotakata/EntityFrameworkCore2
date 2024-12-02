@@ -14,7 +14,8 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
-                dataGridView1.DataSource = context.Products.ToList();
+                dataGridView1.DataSource = context.Products
+                    .Where(x => x.ProductName.Contains("A")).ToList();
             }
 
         }
