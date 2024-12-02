@@ -78,5 +78,20 @@ namespace WinFormsApp2
                     .ThenByDescending(p => p.ProductName).ToList();
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var product = context.Products.Find(4);// DBで使用するFindはプライマリキーを指定する。複数プライマリキーがある場合、Find(4,"A")のようにすればよい
+                if (product == null)
+                {
+                    MessageBox.Show("null!!");
+                    return;
+                }
+                MessageBox.Show(product.ToString());    
+            }
+
+        }
     }
 }

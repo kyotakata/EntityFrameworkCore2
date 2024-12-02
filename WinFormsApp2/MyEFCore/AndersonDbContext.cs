@@ -59,5 +59,9 @@ namespace WinFormsApp2.MyEFCore
         public string ProductName { get; set; }// varchar(255)はC#でいうところのstring
         public int Price { get; set; }
 
+        public override string ToString()
+        {
+            return $"Id={ProductId} Name={ProductName} Price={Price}";
+        }
     }
 }
