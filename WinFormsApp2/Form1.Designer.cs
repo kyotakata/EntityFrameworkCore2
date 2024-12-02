@@ -37,6 +37,7 @@
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
+            button9 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -129,11 +130,22 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
+            // button9
+            // 
+            button9.Location = new Point(404, 371);
+            button9.Name = "button9";
+            button9.Size = new Size(218, 29);
+            button9.TabIndex = 9;
+            button9.Text = "FirstOrDefault";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(button6);
@@ -160,5 +172,6 @@
         private Button button6;
         private Button button7;
         private Button button8;
+        private Button button9;
     }
 }

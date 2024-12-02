@@ -89,7 +89,27 @@ namespace WinFormsApp2
                     MessageBox.Show("null!!");
                     return;
                 }
-                MessageBox.Show(product.ToString());    
+                MessageBox.Show(product.ToString());
+            }
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var product = context.Products
+                    .OrderBy(p=> p.Price)
+                    .FirstOrDefault(p => p.ProductName.Contains("p"));
+
+                if (product == null)
+                {
+                    MessageBox.Show("null!!");
+                    return;
+                }
+
+                MessageBox.Show(product.ToString());
+
             }
 
         }
