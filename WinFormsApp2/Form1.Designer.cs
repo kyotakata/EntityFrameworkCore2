@@ -42,6 +42,7 @@
             button11 = new Button();
             button12 = new Button();
             button13 = new Button();
+            button14 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -184,11 +185,22 @@
             button13.UseVisualStyleBackColor = true;
             button13.Click += button13_Click;
             // 
+            // button14
+            // 
+            button14.Location = new Point(404, 546);
+            button14.Name = "button14";
+            button14.Size = new Size(218, 29);
+            button14.TabIndex = 14;
+            button14.Text = "Like _";
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button14);
             Controls.Add(button13);
             Controls.Add(button12);
             Controls.Add(button11);
@@ -225,5 +237,6 @@
         private Button button11;
         private Button button12;
         private Button button13;
+        private Button button14;
     }
 }

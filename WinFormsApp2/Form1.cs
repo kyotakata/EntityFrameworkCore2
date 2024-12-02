@@ -184,5 +184,16 @@ namespace WinFormsApp2
                 dg.DataSource = products.ToList();
             }
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var products = context.Products
+                    .Where(x => EF.Functions.Like(x.ProductName, "_A%"));
+                dg.DataSource = products.ToList();
+            }
+
+        }
     }
 }
