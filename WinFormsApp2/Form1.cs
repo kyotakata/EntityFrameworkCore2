@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WinFormsApp2.MyEFCore;
 
 namespace WinFormsApp2
@@ -172,6 +173,16 @@ namespace WinFormsApp2
 
             }
 
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var products = context.Products
+                    .Where(x => EF.Functions.Like(x.ProductName, "%A%"));
+                dg.DataSource = products.ToList();
+            }
         }
     }
 }
