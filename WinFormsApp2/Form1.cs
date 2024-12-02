@@ -14,7 +14,7 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
-                dataGridView1.DataSource = context.Products.ToList();
+                dg.DataSource = context.Products.ToList();
             }
 
         }
@@ -23,7 +23,7 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
-                dataGridView1.DataSource = context.Products
+                dg.DataSource = context.Products
                     .Where(x => x.ProductName.Contains("A")).ToList();
             }
         }
@@ -32,9 +32,31 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
-                dataGridView1.DataSource = context.Products.OrderBy(p => p.Price).ToList();
+                dg.DataSource = context.Products.OrderBy(p => p.Price).ToList();
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // 複数のOrderByがある場合は、最後のOrderByのみ有効（この場合ProductName順になる）
+            using (var context = new AndersonDbContext())
+            {
+                dg.DataSource = context.Products
+                    .OrderBy(p => p.Price)
+                    .OrderBy(p => p.ProductName).ToList();
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                dg.DataSource = context.Products
+                    .OrderBy(p => p.Price)
+                    .ThenBy(p => p.ProductName).ToList();
+            }
         }
     }
 }
