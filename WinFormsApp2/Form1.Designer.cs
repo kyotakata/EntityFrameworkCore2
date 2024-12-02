@@ -38,6 +38,8 @@
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
+            button10 = new Button();
+            button11 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -140,11 +142,33 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
+            // button10
+            // 
+            button10.Location = new Point(404, 406);
+            button10.Name = "button10";
+            button10.Size = new Size(218, 29);
+            button10.TabIndex = 10;
+            button10.Text = "Last";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // button11
+            // 
+            button11.Location = new Point(404, 441);
+            button11.Name = "button11";
+            button11.Size = new Size(218, 29);
+            button11.TabIndex = 11;
+            button11.Text = "Single";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button11);
+            Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
@@ -173,5 +197,7 @@
         private Button button7;
         private Button button8;
         private Button button9;
+        private Button button10;
+        private Button button11;
     }
 }
