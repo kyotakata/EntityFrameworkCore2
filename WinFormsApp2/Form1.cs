@@ -157,5 +157,21 @@ namespace WinFormsApp2
             }
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var query = (from p in context.Products// ‘SŒæ“¾
+                             where p.ProductName.Contains("A")// A‚ªŠÜ‚Ü‚ê‚½‚à‚Ì
+                             orderby p.Price descending// ~‡
+                             select new { p.ProductId, p.ProductName }// æ“¾€–Ú‚Ì‘I‘ğ
+                            ).First();// Å‰‚Ì1Œ‚Ì‚İæ“¾
+                MessageBox.Show(query.ToString());
+                //dg.DataSource = query.ToList();
+
+            }
+
+        }
     }
 }

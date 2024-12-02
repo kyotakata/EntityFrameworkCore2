@@ -40,6 +40,7 @@
             button9 = new Button();
             button10 = new Button();
             button11 = new Button();
+            button12 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -162,11 +163,22 @@
             button11.UseVisualStyleBackColor = true;
             button11.Click += button11_Click;
             // 
+            // button12
+            // 
+            button12.Location = new Point(404, 476);
+            button12.Name = "button12";
+            button12.Size = new Size(218, 29);
+            button12.TabIndex = 12;
+            button12.Text = "クエリ構文";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button12);
             Controls.Add(button11);
             Controls.Add(button10);
             Controls.Add(button9);
@@ -199,5 +211,6 @@
         private Button button9;
         private Button button10;
         private Button button11;
+        private Button button12;
     }
 }
