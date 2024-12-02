@@ -58,5 +58,25 @@ namespace WinFormsApp2
                     .ThenBy(p => p.ProductName).ToList();
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                dg.DataSource = context.Products
+                    .OrderByDescending(p => p.Price)
+                    .ThenByDescending(p => p.ProductName).ToList();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                dg.DataSource = context.Products
+                    .OrderBy(p => p.Price)
+                    .ThenByDescending(p => p.ProductName).ToList();
+            }
+        }
     }
 }

@@ -34,6 +34,8 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -96,11 +98,33 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // button6
+            // 
+            button6.Location = new Point(21, 511);
+            button6.Name = "button6";
+            button6.Size = new Size(316, 29);
+            button6.TabIndex = 6;
+            button6.Text = "orderby 複数 降順";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(21, 546);
+            button7.Name = "button7";
+            button7.Size = new Size(316, 29);
+            button7.TabIndex = 7;
+            button7.Text = "orderby 複数 昇順 降順";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 539);
+            ClientSize = new Size(800, 600);
+            Controls.Add(button7);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -121,5 +145,7 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Button button6;
+        private Button button7;
     }
 }
