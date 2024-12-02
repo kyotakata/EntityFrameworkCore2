@@ -14,8 +14,25 @@ namespace WinFormsApp2
         {
             using (var context = new AndersonDbContext())
             {
+                dataGridView1.DataSource = context.Products.ToList();
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
                 dataGridView1.DataSource = context.Products
                     .Where(x => x.ProductName.Contains("A")).ToList();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                dataGridView1.DataSource = context.Products.OrderBy(p => p.Price).ToList();
             }
 
         }
