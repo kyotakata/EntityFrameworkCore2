@@ -21,6 +21,7 @@ namespace WinFormsApp2.MyEFCore
         /// </summary>
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -48,6 +49,11 @@ namespace WinFormsApp2.MyEFCore
                                           // 復号キーの場合にも指定が必要。
             modelBuilder.Entity<Order>()
                 .ToTable("Order");
+
+            modelBuilder.Entity<OrderItem>()
+                .ToTable("OrderItem")
+                .HasKey(oi => new { oi.OrderId, oi.ProductId });
+
         }
     }
 
@@ -67,4 +73,21 @@ namespace WinFormsApp2.MyEFCore
             return $"Id={ProductId} Name={ProductName} Price={Price}";
         }
     }
+
+    public class Order
+    {
+        public int OrderId { get; set; }
+        public int CostomerId { get; set; }
+        public DateTime OrderDate { get; set; }
+    }
+
+    public class OrderItem
+    {
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
+        public int Price { get; set; }
+
+    }
+
 }

@@ -44,6 +44,7 @@
             button13 = new Button();
             button14 = new Button();
             button15 = new Button();
+            button16 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -206,11 +207,22 @@
             button15.UseVisualStyleBackColor = true;
             button15.Click += button15_Click;
             // 
+            // button16
+            // 
+            button16.Location = new Point(502, 67);
+            button16.Name = "button16";
+            button16.Size = new Size(218, 29);
+            button16.TabIndex = 16;
+            button16.Text = "order items";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button16);
             Controls.Add(button15);
             Controls.Add(button14);
             Controls.Add(button13);
@@ -251,5 +263,6 @@
         private Button button13;
         private Button button14;
         private Button button15;
+        private Button button16;
     }
 }
