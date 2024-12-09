@@ -17,9 +17,10 @@ namespace WinFormsApp2.MyEFCore
     {
         /// <summary>
         /// DbSet<TEntity>を介してデータベースにアクセスし、Productデータを全件取得する
-        /// プロパティ名はテーブルの名前を指定する
+        /// プロパティ名はテーブルの名前を指定するが、ModelBuilder.EntityのToTableでテーブル名を指定すれば実際のテーブル名と紐づけることができる。
         /// </summary>
         public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -44,7 +45,9 @@ namespace WinFormsApp2.MyEFCore
                 .ToTable("Product")//実際のテーブル名の指定。実際のテーブル名とDbSet<TEntity>のプロパティ名と必ずしも一緒にしなくてよい
                 .HasKey(p => p.ProductId);//主キーの指定(ProductEntity.ProductIdが主キーであることを定義)
                                           // 主キーがModelクラス名+Id出ない場合に指定が必要。
-            　　　　　　　　　　　　　　　// 復号キーの場合にも指定が必要。
+                                          // 復号キーの場合にも指定が必要。
+            modelBuilder.Entity<Order>()
+                .ToTable("Order");
         }
     }
 

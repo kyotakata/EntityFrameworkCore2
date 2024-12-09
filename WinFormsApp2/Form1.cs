@@ -195,5 +195,22 @@ namespace WinFormsApp2
             }
 
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var q = from o in context.Orders
+                        select o;
+                dg.DataSource = q.ToList();
+            }
+        }
+    }
+
+    public class Order
+    {
+        public int OrderId { get; set; }
+        public int CostomerId { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }
