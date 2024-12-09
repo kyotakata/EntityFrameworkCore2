@@ -216,6 +216,28 @@ namespace WinFormsApp2
 
             }
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var q = from a in context.Orders
+                        join b in context.OrderItems
+                        on a.OrderId equals b.OrderId
+                        select new 
+                        { 
+                            a.OrderId, 
+                            a.CostomerId, 
+                            a.OrderDate, 
+                            b.ProductId, 
+                            b.Quantity,
+                            b.Price,
+                        };
+                dg.DataSource = q.ToList();
+
+            }
+
+        }
     }
 
 }
