@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,9 @@ namespace WinFormsApp2.MyEFCore
 
             //UseSqlServerで接続先を指定
             optionsBuilder.UseSqlServer(builder.ConnectionString).LogTo(message =>
-            System.Diagnostics.Debug.WriteLine(message));
+            System.Diagnostics.Debug.WriteLine(message),
+            new[] { DbLoggerCategory.Database.Command.Name},
+            LogLevel.Information);
         }
 
         private void AAA(string message)
