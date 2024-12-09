@@ -224,12 +224,12 @@ namespace WinFormsApp2
                 var q = from a in context.Orders
                         join b in context.OrderItems
                         on a.OrderId equals b.OrderId
-                        select new 
-                        { 
-                            a.OrderId, 
-                            a.CostomerId, 
-                            a.OrderDate, 
-                            b.ProductId, 
+                        select new
+                        {
+                            a.OrderId,
+                            a.CostomerId,
+                            a.OrderDate,
+                            b.ProductId,
                             b.Quantity,
                             b.Price,
                         };
@@ -237,6 +237,29 @@ namespace WinFormsApp2
 
             }
 
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var q = from a in context.Orders
+                        join b in context.OrderItems
+                        on a.OrderId equals b.OrderId into bb
+                        from b in bb.DefaultIfEmpty()
+                        select new
+                        {
+                            a.OrderId,
+                            a.CostomerId,
+                            a.OrderDate,
+                            ProductId = b != null ? b.ProductId : (int?)null,//int‚Ìnull‹–—eŒ^‚É•ÏŠ·
+                            Quantity = b != null ? b.Quantity : (int?)null,
+                            Price = b != null ? b.Price : (int?)null,
+                        };
+
+                dg.DataSource = q.ToList();
+
+            }
         }
     }
 

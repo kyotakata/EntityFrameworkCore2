@@ -46,6 +46,7 @@
             button15 = new Button();
             button16 = new Button();
             button17 = new Button();
+            button18 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             SuspendLayout();
             // 
@@ -224,15 +225,26 @@
             button17.Name = "button17";
             button17.Size = new Size(218, 29);
             button17.TabIndex = 17;
-            button17.Text = "join";
+            button17.Text = "inner join";
             button17.UseVisualStyleBackColor = true;
             button17.Click += button17_Click;
+            // 
+            // button18
+            // 
+            button18.Location = new Point(502, 163);
+            button18.Name = "button18";
+            button18.Size = new Size(218, 29);
+            button18.TabIndex = 18;
+            button18.Text = "outer join";
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(button18);
             Controls.Add(button17);
             Controls.Add(button16);
             Controls.Add(button15);
@@ -277,5 +289,6 @@
         private Button button15;
         private Button button16;
         private Button button17;
+        private Button button18;
     }
 }
