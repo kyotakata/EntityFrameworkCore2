@@ -33,7 +33,13 @@ namespace WinFormsApp2.MyEFCore
             builder.TrustServerCertificate = true;
 
             //UseSqlServerで接続先を指定
-            optionsBuilder.UseSqlServer(builder.ConnectionString);
+            optionsBuilder.UseSqlServer(builder.ConnectionString).LogTo(message =>
+            System.Diagnostics.Debug.WriteLine(message));
+        }
+
+        private void AAA(string message)
+        {
+
         }
 
         /// <summary>
