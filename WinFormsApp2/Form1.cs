@@ -261,6 +261,16 @@ namespace WinFormsApp2
 
             }
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var orders = context.Orders
+                    .Include(o => o.OrderItems).ToList();
+
+            }
+        }
     }
 
 }

@@ -1,11 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WinFormsApp2.MyEFCore
 {
@@ -88,6 +83,7 @@ namespace WinFormsApp2.MyEFCore
         public int OrderId { get; set; }
         public int CostomerId { get; set; }
         public DateTime OrderDate { get; set; }
+        public List<OrderItem> OrderItems { get; set; } = new();// C#9.0からnew 型名()の「型名」を省略できるようになった
     }
 
     public class OrderItem
