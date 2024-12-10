@@ -93,6 +93,9 @@ namespace WinFormsApp2.MyEFCore
         public int Quantity { get; set; }
         public int Price { get; set; }
 
+        public ProductEntity? Product { get; set; }
+
+        public string ProductName => Product?.ProductName;
     }
 
 }

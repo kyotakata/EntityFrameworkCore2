@@ -282,6 +282,19 @@ namespace WinFormsApp2
             }
             dg2.DataSource = order.OrderItems;
         }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var orders = context.Orders
+                    .Include(o => o.OrderItems)// Orders‚É•R‚Ã‚­OrderItems‚ð‚Æ‚é‚Æ‚«‚ÍIncludeBInclude‚ÍƒƒCƒ“‚É‘Î‚µ‚Äs‚¤B
+                    .ThenInclude(oi => oi.Product);//•R‚Ã‚¢‚Ä‚¢‚é‚à‚Ì(OrderItems)‚É‘Î‚µ‚Ä•R‚Ã‚¯‚é‚Æ‚«‚­‚Á‚Â‚¯‚é‚Æ‚«‚ÍThenInclude
+                dg.DataSource = orders.ToList();
+
+            }
+
+        }
     }
 
 }
