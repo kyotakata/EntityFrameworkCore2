@@ -48,7 +48,9 @@
             button17 = new Button();
             button18 = new Button();
             button19 = new Button();
+            dg2 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dg2).BeginInit();
             SuspendLayout();
             // 
             // dg
@@ -57,8 +59,9 @@
             dg.Location = new Point(21, 21);
             dg.Name = "dg";
             dg.RowHeadersWidth = 51;
-            dg.Size = new Size(437, 297);
+            dg.Size = new Size(462, 152);
             dg.TabIndex = 0;
+            dg.SelectionChanged += dg_SelectionChanged;
             // 
             // button1
             // 
@@ -250,11 +253,21 @@
             button19.UseVisualStyleBackColor = true;
             button19.Click += button19_Click;
             // 
+            // dg2
+            // 
+            dg2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dg2.Location = new Point(21, 194);
+            dg2.Name = "dg2";
+            dg2.RowHeadersWidth = 51;
+            dg2.Size = new Size(462, 136);
+            dg2.TabIndex = 20;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
+            Controls.Add(dg2);
             Controls.Add(button19);
             Controls.Add(button18);
             Controls.Add(button17);
@@ -278,6 +291,7 @@
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dg2).EndInit();
             ResumeLayout(false);
         }
 
@@ -303,5 +317,6 @@
         private Button button17;
         private Button button18;
         private Button button19;
+        private DataGridView dg2;
     }
 }

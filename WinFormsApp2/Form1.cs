@@ -268,8 +268,19 @@ namespace WinFormsApp2
             {
                 var orders = context.Orders
                     .Include(o => o.OrderItems).ToList();
+                dg.DataSource = orders;
 
             }
+        }
+
+        private void dg_SelectionChanged(object sender, EventArgs e)
+        {
+            var order = dg.CurrentRow.DataBoundItem as Order;
+            if (order == null)
+            {
+                return;
+            }
+            dg2.DataSource = order.OrderItems;
         }
     }
 
