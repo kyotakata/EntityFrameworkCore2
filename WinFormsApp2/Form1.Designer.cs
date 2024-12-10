@@ -50,6 +50,7 @@
             button19 = new Button();
             dg2 = new DataGridView();
             button20 = new Button();
+            button21 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dg2).BeginInit();
             SuspendLayout();
@@ -273,11 +274,22 @@
             button20.UseVisualStyleBackColor = true;
             button20.Click += button20_Click;
             // 
+            // button21
+            // 
+            button21.Location = new Point(502, 301);
+            button21.Name = "button21";
+            button21.Size = new Size(218, 29);
+            button21.TabIndex = 22;
+            button21.Text = "Customer";
+            button21.UseVisualStyleBackColor = true;
+            button21.Click += button21_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(971, 600);
+            Controls.Add(button21);
             Controls.Add(button20);
             Controls.Add(dg2);
             Controls.Add(button19);
@@ -331,5 +343,6 @@
         private Button button19;
         private DataGridView dg2;
         private Button button20;
+        private Button button21;
     }
 }

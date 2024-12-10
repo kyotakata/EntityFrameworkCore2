@@ -18,6 +18,7 @@ namespace WinFormsApp2.MyEFCore
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -64,6 +65,9 @@ namespace WinFormsApp2.MyEFCore
                 .HasForeignKey(oi => oi.ProductId)
                 .IsRequired(false);
 
+            modelBuilder.Entity<Customer>()
+                .ToTable("Customer");
+
         }
     }
 
@@ -99,9 +103,17 @@ namespace WinFormsApp2.MyEFCore
         public int Quantity { get; set; }
         public int Price { get; set; }
 
-        public ProductEntity? Product { get; set; }
+        public ProductEntity Product { get; set; }
 
         public string ProductName => Product?.ProductName;
+    }
+
+    public class Customer
+    {
+        public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public string? TEL { get; set; }
+        public string? MailAddress { get; set; }
     }
 
 }

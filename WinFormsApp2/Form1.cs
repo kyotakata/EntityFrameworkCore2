@@ -295,6 +295,14 @@ namespace WinFormsApp2
             }
 
         }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                dg.DataSource = context.Customers.ToList();
+            }
+        }
     }
 
 }
