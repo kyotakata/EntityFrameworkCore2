@@ -58,6 +58,12 @@ namespace WinFormsApp2.MyEFCore
                 .ToTable("OrderItem")
                 .HasKey(oi => new { oi.OrderId, oi.ProductId });
 
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(oi => oi.Product)
+                .WithMany()
+                .HasForeignKey(oi => oi.ProductId)
+                .IsRequired(false);
+
         }
     }
 
