@@ -51,6 +51,7 @@
             dg2 = new DataGridView();
             button20 = new Button();
             button21 = new Button();
+            button22 = new Button();
             ((System.ComponentModel.ISupportInitialize)dg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dg2).BeginInit();
             SuspendLayout();
@@ -217,7 +218,7 @@
             // 
             // button16
             // 
-            button16.Location = new Point(502, 67);
+            button16.Location = new Point(502, 56);
             button16.Name = "button16";
             button16.Size = new Size(218, 29);
             button16.TabIndex = 16;
@@ -227,7 +228,7 @@
             // 
             // button17
             // 
-            button17.Location = new Point(502, 114);
+            button17.Location = new Point(502, 91);
             button17.Name = "button17";
             button17.Size = new Size(218, 29);
             button17.TabIndex = 17;
@@ -237,7 +238,7 @@
             // 
             // button18
             // 
-            button18.Location = new Point(502, 163);
+            button18.Location = new Point(502, 126);
             button18.Name = "button18";
             button18.Size = new Size(218, 29);
             button18.TabIndex = 18;
@@ -247,7 +248,7 @@
             // 
             // button19
             // 
-            button19.Location = new Point(502, 211);
+            button19.Location = new Point(502, 161);
             button19.Name = "button19";
             button19.Size = new Size(218, 29);
             button19.TabIndex = 19;
@@ -266,7 +267,7 @@
             // 
             // button20
             // 
-            button20.Location = new Point(502, 257);
+            button20.Location = new Point(502, 196);
             button20.Name = "button20";
             button20.Size = new Size(218, 29);
             button20.TabIndex = 21;
@@ -276,7 +277,7 @@
             // 
             // button21
             // 
-            button21.Location = new Point(502, 301);
+            button21.Location = new Point(502, 231);
             button21.Name = "button21";
             button21.Size = new Size(218, 29);
             button21.TabIndex = 22;
@@ -284,11 +285,22 @@
             button21.UseVisualStyleBackColor = true;
             button21.Click += button21_Click;
             // 
+            // button22
+            // 
+            button22.Location = new Point(502, 266);
+            button22.Name = "button22";
+            button22.Size = new Size(218, 29);
+            button22.TabIndex = 23;
+            button22.Text = "Include+Product+Customer";
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(971, 600);
+            Controls.Add(button22);
             Controls.Add(button21);
             Controls.Add(button20);
             Controls.Add(dg2);
@@ -344,5 +356,6 @@
         private DataGridView dg2;
         private Button button20;
         private Button button21;
+        private Button button22;
     }
 }

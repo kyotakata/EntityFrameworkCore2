@@ -227,7 +227,7 @@ namespace WinFormsApp2
                         select new
                         {
                             a.OrderId,
-                            a.CostomerId,
+                            a.CustomerId,
                             a.OrderDate,
                             b.ProductId,
                             b.Quantity,
@@ -250,7 +250,7 @@ namespace WinFormsApp2
                         select new
                         {
                             a.OrderId,
-                            a.CostomerId,
+                            a.CustomerId,
                             a.OrderDate,
                             ProductId = b != null ? b.ProductId : (int?)null,//int‚Ìnull‹–—eŒ^‚É•ÏŠ·
                             Quantity = b != null ? b.Quantity : (int?)null,
@@ -302,6 +302,20 @@ namespace WinFormsApp2
             {
                 dg.DataSource = context.Customers.ToList();
             }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            using (var context = new AndersonDbContext())
+            {
+                var orders = context.Orders
+                    .Include(o => o.OrderItems)// Orders‚É•R‚Ã‚­OrderItems‚ð‚Æ‚é‚Æ‚«‚ÍIncludeBInclude‚ÍƒƒCƒ“‚É‘Î‚µ‚Äs‚¤B
+                    .ThenInclude(oi => oi.Product)//•R‚Ã‚¢‚Ä‚¢‚é‚à‚Ì(OrderItems)‚É‘Î‚µ‚Ä•R‚Ã‚¯‚é‚Æ‚«‚­‚Á‚Â‚¯‚é‚Æ‚«‚ÍThenInclude
+                    .Include(o => o.Customer);
+                dg.DataSource = orders.ToList();
+
+            }
+
         }
     }
 

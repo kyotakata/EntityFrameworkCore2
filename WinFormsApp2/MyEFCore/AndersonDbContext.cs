@@ -91,9 +91,11 @@ namespace WinFormsApp2.MyEFCore
     public class Order
     {
         public int OrderId { get; set; }
-        public int CostomerId { get; set; }
+        public int CustomerId { get; set; }
         public DateTime OrderDate { get; set; }
         public List<OrderItem> OrderItems { get; set; } = new();// C#9.0からnew 型名()の「型名」を省略できるようになった
+        public Customer Customer { get; set; }
+        public string CustomerName => Customer?.CustomerName;
     }
 
     public class OrderItem
